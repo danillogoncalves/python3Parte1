@@ -4,9 +4,12 @@ def jogar():
     print('*********************************')
 
     palavra_secreta = 'banana'
+    letras_acertadas = ['_', '_', '_', '_', '_', '_']
 
     enforcou = False
     acerto = False
+
+    print(letras_acertadas)
 
     #enquanto não enforcou E não acertou - o not negada o valor bool(booleano)
     #enquanto(not False and not False):
@@ -15,15 +18,15 @@ def jogar():
     while(not enforcou and not acerto):
 
         index = 0
-        chute = input('Qual a letra?')
+        chute = input('Qual a letra? {}')
         chute = chute.strip()
 
         for letra in palavra_secreta:
             if(chute.upper() == letra.upper()):
-                print('Encontrei a letra {} na posição {}'.format(chute, index))
+                letras_acertadas[index] = letra
             index = index + 1
 
-        print('Jogando...')
+        print(letras_acertadas)
 
     print('Fim do jogo')
 
