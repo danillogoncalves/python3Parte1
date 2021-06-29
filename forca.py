@@ -13,6 +13,16 @@ def jogar():
     #enquanto(True and True):
     #enquanto(True):
     while(not enforcou and not acerto):
+
+        index = 0
+        chute = input('Qual a letra?')
+        chute = chute.strip()
+
+        for letra in palavra_secreta:
+            if(chute.upper() == letra.upper()):
+                print('Encontrei a letra {} na posição {}'.format(chute, index))
+            index = index + 1
+
         print('Jogando...')
 
     print('Fim do jogo')
