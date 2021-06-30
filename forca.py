@@ -3,30 +3,39 @@ def jogar():
     print('***Bem vindo ao jogo de Forca!***')
     print('*********************************')
 
-    palavra_secreta = 'banana'
-    letras_acertadas = ['_', '_', '_', '_', '_', '_']
+    palavra_secreta = 'maça'.upper()
+    letras_acertadas = ['_' for letra in palavra_secreta]
+
+#   for letra in palavra_secreta:
+#       letras_acertadas.append('_')
 
     enforcou = False
     acerto = False
-
+    erros = 0
     print(letras_acertadas)
 
-    #enquanto não enforcou E não acertou - o not negada o valor bool(booleano)
-    #enquanto(not False and not False):
-    #enquanto(True and True):
-    #enquanto(True):
     while(not enforcou and not acerto):
 
-        index = 0
-        chute = input('Qual a letra? {}')
-        chute = chute.strip()
+        chute = input('Qual a letra?')
+        chute = chute.strip().upper()
 
-        for letra in palavra_secreta:
-            if(chute.upper() == letra.upper()):
-                letras_acertadas[index] = letra
-            index = index + 1
+        if(chute in palavra_secreta):
+            index = 0
+            for letra in palavra_secreta:
+                if(chute == letra):
+                    letras_acertadas[index] = letra
+                index += 1
+        else:
+            erros += 1
 
+        enforcou = erros == 6
+        acerto = '_' not in letras_acertadas
         print(letras_acertadas)
+
+    if(acerto):
+        print('Você ganhou!!!')
+    else:
+        print('Você perdeu!!!')
 
     print('Fim do jogo')
 
